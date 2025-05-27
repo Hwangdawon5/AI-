@@ -1,0 +1,29 @@
+# 🔹 Python 캐시/컴파일 파일 무시
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🔹 가상환경 폴더
+venv/
+.env
+
+# 🔹 Jupyter 노트북 체크포인트
+.ipynb_checkpoints/
+
+# 🔹 VSCode 설정파일
+.vscode/
+
+# 🔹 macOS 시스템 파일
+.DS_Store
+
+# 🔹 Firebase 비공개 키
+firebase_credentials.json
+
+# 🔹 시각화 이미지 출력 결과
+static/images/*
+!static/images/.gitkeep
+
+# 🔹 기타 무시할 수 있는 파일
+*.log
+*.tmp
