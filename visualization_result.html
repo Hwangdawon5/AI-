@@ -1,0 +1,56 @@
+import pandas as pd
+
+# 데이터 불러오기
+df = pd.read_csv('ai_tools.csv')
+html_table = df.head(10).to_html(index=False)
+
+# HTML 템플릿 작성
+html_content = f"""
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 도구 시각화 결과</title>
+    <style>
+        body {{
+            font-family: 'Apple SD Gothic Neo', 'AppleGothic', sans-serif;
+            padding: 20px;
+        }}
+        img {{
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }}
+        table {{
+            border-collapse: collapse;
+            width: 100%;
+        }}
+        th, td {{
+            border: 1px solid #ddd;
+            padding: 8px;
+        }}
+        th {{
+            background-color: #f2f2f2;
+        }}
+    </style>
+</head>
+<body>
+    <h1>🧠 AI 도구 시각화 결과</h1>
+    
+    <h2>📊 카테고리 분포</h2>
+    <img src="category_distribution.png" alt="카테고리 분포">
+
+    <h2>📊 난이도 분포</h2>
+    <img src="difficulty_distribution.png" alt="난이도 분포">
+
+    <h2>📋 AI 도구 상위 10개 목록</h2>
+    {html_table}
+</body>
+</html>
+"""
+
+# HTML로 저장
+with open('visualization_result.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("✅ visualization_result.html 파일이 생성되었습니다.")
